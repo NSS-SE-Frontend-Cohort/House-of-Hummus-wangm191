@@ -1,0 +1,33 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table entrees {
+  id String [primary key]
+  name String
+  price Number 
+}
+
+Table vegetables {
+  id String [primary key]
+  type String
+  price Number
+}
+
+Table sides {
+  id String [primary key]
+  title String
+  price Number
+}
+
+Table purchases {
+  id String [primary key]
+  entreeId Number 
+  vegetableId Number
+  sidesId Number
+} 
+
+Ref: entrees.id < purchases.entreeId // many-to-one
+
+Ref: vegetables.id < purchases.vegetableId
+
+Ref: sides.id < purchases.sidesId
